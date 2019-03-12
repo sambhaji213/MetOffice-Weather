@@ -23,7 +23,7 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/textSize_20"/>
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
             android:id="@+id/llLoader"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -45,5 +45,5 @@
                 android:gravity="center"
                 android:textColor="@android:color/white"
                 android:text="@string/hint_initialization_weather_data"/>
-    </LinearLayout>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 </RelativeLayout>
