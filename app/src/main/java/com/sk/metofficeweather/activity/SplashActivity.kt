@@ -50,6 +50,7 @@ class SplashActivity : AppCompatActivity() {
     private fun getWeatherData() {
         //Iteration on location and metrics
         if (AppAndroidUtils.isNetWorkAvailable()) {
+            myAppDbHelper!!.clearData()
             val locationsList = Locations.values()
             val metricsList = Metrics.values()
             for (placeName in locationsList) {
@@ -57,6 +58,8 @@ class SplashActivity : AppCompatActivity() {
                     getDataFromAPI(metricName, placeName)
                 }
             }
+        } else {
+            finish()
         }
     }
 

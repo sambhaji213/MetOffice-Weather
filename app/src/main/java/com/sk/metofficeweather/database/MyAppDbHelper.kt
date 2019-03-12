@@ -54,11 +54,20 @@ class MyAppDbHelper(context: Context) :
         db.execSQL(deleteTmax)
         db.execSQL(deleteTmin)
         db.execSQL(deleteRainfall)
-        onCreate(db)
     }
 
     override fun onDowngrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
         onUpgrade(db, oldVersion, newVersion)
+    }
+
+    fun clearData(){
+        val db = this.writableDatabase
+        val deleteTmax = "TR FROM " + AppConstants.TABLE_TMAX
+        val deleteTmin = "DELETE FROM " + AppConstants.TABLE_TMIN
+        val deleteRainfall = "DELETE FROM " + AppConstants.TABLE_RAIN_FALL
+        db.execSQL(deleteTmax)
+        db.execSQL(deleteTmin)
+        db.execSQL(deleteRainfall)
     }
 
     fun insertTmaxList(weatherTmaxList: List<Weather>, placeName: String) {
